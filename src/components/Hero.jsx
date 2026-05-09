@@ -14,19 +14,32 @@ const Hero = () => {
   const y = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
 
   return (
-    <section ref={containerRef} className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-      {/* Video Background */}
-      <div className="absolute inset-0 z-0">
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline
-          className="w-full h-full object-cover object-[center_20%] opacity-30 grayscale contrast-125"
-        >
-          <source src="/images/video_1.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-luxury-black/60" />
+    <section ref={containerRef} className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black">
+      {/* Cinematic Triptych Video Background */}
+      <div className="absolute inset-0 z-0 flex gap-1 md:gap-4 opacity-40 grayscale contrast-125 scale-105">
+        {[...Array(3)].map((_, i) => (
+          <div key={i} className="relative flex-1 h-full overflow-hidden">
+            <video 
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+              className="w-full h-full object-cover"
+            >
+              <source src="/images/video_1.mp4" type="video/mp4" />
+            </video>
+            {/* Subtle overlay per panel */}
+            <div className="absolute inset-0 bg-black/20" />
+          </div>
+        ))}
+      </div>
+
+      {/* Global Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-[1]" />
+      <div className="absolute inset-0 bg-luxury-black/40 z-[1]" />
+      
+      {/* Decorative Glows */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full z-[2]">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-luxury-gold/10 rounded-full blur-[120px] animate-pulse-slow" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-luxury-gold/5 rounded-full blur-[120px] animate-pulse-slow delay-1000" />
       </div>

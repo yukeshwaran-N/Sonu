@@ -18,7 +18,7 @@ const CinematicCinema = () => {
   return (
     <section className="relative h-screen bg-black overflow-hidden flex items-center justify-center">
       {/* Film Grain Texture Overlay */}
-      <div className="absolute inset-0 z-[1] opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+      <div className="absolute inset-0 z-[1] opacity-[0.03] pointer-events-none bg-noise" />
 
       {/* Dynamic Blurred Backdrop */}
       <AnimatePresence mode="wait">
